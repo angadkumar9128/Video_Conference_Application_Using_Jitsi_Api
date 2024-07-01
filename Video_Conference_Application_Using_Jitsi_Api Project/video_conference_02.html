@@ -1,0 +1,46 @@
+<!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<style>
+    body{
+        margin: 50px;
+        padding: 16px;
+        background-image: url(background.jpg);
+        background-size: cover;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-image: -webkit-linear-gradient();
+        color: blues;
+    }
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jitsi Meet</title>
+    <link rel="stylesheet" href="video_conference.css">
+</head>
+<body>
+    <h1>Enter the room name to join the Jitsi meeting:</h1>
+    <input type="text" id="roomNameInput">
+    <button onclick="joinJitsiMeeting()">Join Meeting</button>
+
+    <script>
+        function joinJitsiMeeting() {
+            const domain = 'meet.jit.si'; // Jitsi Meet domain
+            const roomName = document.getElementById('roomNameInput').value.trim();
+
+            if (roomName === '') {
+                alert('Please enter a valid room name.');
+                return;
+            }
+
+            const link = `https://${domain}/${roomName}`;
+
+            // Open the Jitsi meeting in a new window/tab
+            window.open(link, '_blank');
+        }
+    </script>
+</body>
+</html>
